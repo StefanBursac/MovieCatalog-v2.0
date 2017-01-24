@@ -11,6 +11,9 @@ namespace VezbaEntityframework
     {
         static void Main(string[] args)
         {
+
+            Database.SetInitializer<School>(new DropCreateDatabaseIfModelChanges<School>());
+
             School school = new School();
 
             Student student = new Student() { StudentFirstName = "Stefan", StudentLastName = "Bursac", StudentGender = "Male", StudentAge = 31, StudentBirthDate = new DateTime(1985, 2, 15) };

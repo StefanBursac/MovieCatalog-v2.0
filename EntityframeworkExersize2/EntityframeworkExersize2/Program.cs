@@ -17,6 +17,11 @@ namespace EntityframeworkExersize2
 
             mc.Movies.Add(m);
             mc.SaveChanges();
+            mc.Movies.Remove(m);
+            mc.SaveChanges();
+        
+            
+
         }
     }
 }

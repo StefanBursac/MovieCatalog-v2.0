@@ -19,7 +19,8 @@ namespace VezbaEntityframework
         public string StudentGender { get; set; }
         public int StudentAge { get; set; }
         public DateTime StudentBirthDate { get; set; }
-
+        public string StudentNickName { get; set; }
+        public string Age { get; set; }
 
     }
 }

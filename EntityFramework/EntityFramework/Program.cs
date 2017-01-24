@@ -13,7 +13,7 @@ namespace EntityFramework
 
                 SchoolContext s = new SchoolContext();
             
-                Student stud = new Student() { StudentName = "nafets", DateOfBirth = new DateTime (1985,2,15) };
+                Student stud = new Student() { StudentName = "Stefan", DateOfBirth = new DateTime (1985,2,15) };
 
                 s.Students.Add(stud);
                 s.SaveChanges();
