@@ -11,12 +11,20 @@ namespace VezbaEntityframework
     {
         static void Main(string[] args)
         {
+
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<School>());
+
+
             School school = new School();
 
-            Student student = new Student() { StudentFirstName = "Stefan", StudentLastName = "Bursac", StudentGender = "Male", StudentAge = 31, StudentBirthDate = new DateTime(1985, 2, 15) };
+            Student student = new Student() { StudentName = "Stefan", StudentLastName = "Bursac" };
+            Teacher teacher = new Teacher() { TeacherName = "Ivan" };
 
             school.Students.Add(student);
+            school.Teachers.Add(teacher);
             school.SaveChanges();
+        
+
 
 
         }
