@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,17 @@ namespace MovieCatalogV2._0
     /// </summary>
     public partial class MainWindow : Window
     {
-        MovieCatalogContext m = new MovieCatalogContext();
        
-
+       public MovieCatalogContext m = new MovieCatalogContext();
+       MovieCollection ms = new MovieCollection();
         public MainWindow()
-        {   
+        {
             InitializeComponent();
+            
+            //foreach (Movie ma in m.Movies)
+            //{
+            //    ms.movie.Add(ma);
+            //}
             dataGrid.ItemsSource = m.Movies.ToList();
         }
 
@@ -45,6 +51,11 @@ namespace MovieCatalogV2._0
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            m.SaveChanges();
         }
     }
 }

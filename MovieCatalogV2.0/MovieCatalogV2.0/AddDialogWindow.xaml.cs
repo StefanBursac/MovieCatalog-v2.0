@@ -19,18 +19,21 @@ namespace MovieCatalogV2._0
     /// </summary>
     public partial class AddDialogWindow : Window
     {
+        Movie m = new Movie();
+        
         public AddDialogWindow()
         {
             InitializeComponent();
+            comboBoxGenre.ItemsSource= m.Genre.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (var mcc = new MovieCatalogContext())
-            {
-                Movie m = new Movie() { MovieName = textBoxName.Text, MovieDirector = textBoxDirector.Text, ReleaseDate = textBoxDate.SelectedDate};
-                mcc.Movies.Add(m);
-                mcc.SaveChanges();
+            {   
+                
+                Movie mov = new Movie() { MovieName = textBoxName.Text, MovieDirector = textBoxDirector.Text, ReleaseDate = textBoxDate.SelectedDate.Value};
+                
+                Close();
             }
         }
 

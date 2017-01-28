@@ -30,9 +30,9 @@
             AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Movie Name" Binding="{Binding MovieName}"/>
-                <DataGridTextColumn Header="Genre" Binding="{Binding zanr}"/>
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}"/>
                 <DataGridTextColumn Header="Director" Binding="{Binding MovieDirector}"/>
-                <DataGridTextColumn Header="Release Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate}"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -50,9 +50,7 @@
             <Button Name="Delete" Content="Delete" Grid.Row="1" Width="94" Height="25" Margin="5" VerticalAlignment="Top" Click="Delete_Click"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left" Margin="5,0,0,10">
-
-            <Button Name="Import" Content="Import" Grid.Row="2" Width="95" Height="25" Margin="5" VerticalAlignment="Bottom"/>
-            <Button Name="Export" Content="Export" Width="95" Height="25" Margin="5" VerticalAlignment="Bottom" />
+            <Button Name="Export" Content="Save" Width="95" Height="25" Margin="5" VerticalAlignment="Bottom" Click="Save_Click" />
 
         </StackPanel>
         <Button Name="Exit" Content="Exit" Width="94" Height="25" Grid.Row="2" Grid.Column="1" HorizontalAlignment="right" Margin="0,5,5,15" VerticalAlignment="Bottom" Click="Exit_Click"/>

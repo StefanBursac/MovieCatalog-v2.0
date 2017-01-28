@@ -10,6 +10,8 @@ namespace MovieCatalogV2._0
     {
         public int MovieID { get; set; }
         public string MovieName { get; set; }
+        public enum MovieGenre { Action, Drama, Comedy, SciFi };
+        public MovieGenre Genre {get; set;}
         public string MovieDirector { get; set; }
         public DateTime? ReleaseDate { get; set; }
     }

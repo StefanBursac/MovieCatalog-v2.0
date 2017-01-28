@@ -34,7 +34,7 @@
 
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.RowSpan="3" Margin="5">
             <TextBox x:Name="textBoxName" Width="150" Height="25" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-            <ComboBox x:Name="textboxGenre" Grid.Row="1" Width="150" Height="25" Margin="5" Grid.Column="1" HorizontalAlignment="Left" ItemsSource="{Binding Genres}"/>
+            <ComboBox x:Name="comboBoxGenre" Grid.Row="1" Width="150" Height="25" Margin="5" Grid.Column="1" HorizontalAlignment="Left"/>
             <TextBox x:Name="textBoxDirector" Width=" 150" Height="25" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Grid.Column="1"/>
 
             <DatePicker x:Name="textBoxDate" Grid.Row="3" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" />
