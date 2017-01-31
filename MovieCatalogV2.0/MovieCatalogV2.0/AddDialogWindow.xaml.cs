@@ -24,7 +24,6 @@ namespace MovieCatalogV2._0
         public AddDialogWindow()
         {
             InitializeComponent();
-            comboBoxGenre.ItemsSource= m.Genre.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -24,16 +24,16 @@ namespace MovieCatalogV2._0
     {
        
        public MovieCatalogContext m = new MovieCatalogContext();
-       MovieCollection ms = new MovieCollection();
-        public MainWindow()
+       public ObservableCollection<Movie> movie = new ObservableCollection<Movie>();
+
+       public MainWindow()
         {
             InitializeComponent();
-            
-            //foreach (Movie ma in m.Movies)
-            //{
-            //    ms.movie.Add(ma);
-            //}
-            dataGrid.ItemsSource = m.Movies.ToList();
+            MovieCatalogContext m = new MovieCatalogContext();
+
+            movie = new ObservableCollection<Movie>(m.Movies);
+
+            dataGrid.ItemsSource = movie;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
