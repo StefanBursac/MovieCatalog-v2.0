@@ -15,37 +15,49 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MovieCatalogV2._0
+namespace MovieCatalogV20
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-       
-       public MovieCatalogContext m = new MovieCatalogContext();
-       public ObservableCollection<Movie> movie = new ObservableCollection<Movie>();
+        public ObservableCollection<Movie> Movies = new ObservableCollection<Movie>();
 
-       public MainWindow()
-        {
+        public MovieCatalogContext m = new MovieCatalogContext();
+
+        public MainWindow()
+        {   
             InitializeComponent();
-            MovieCatalogContext m = new MovieCatalogContext();
 
-            movie = new ObservableCollection<Movie>(m.Movies);
-
-            dataGrid.ItemsSource = movie;
+            Movies = new ObservableCollection<Movie>(m.Movies);
+            dataGrid.ItemsSource = Movies;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             AddDialogWindow addWindow = new AddDialogWindow();
-            addWindow.ShowDialog();
+            if (addWindow.ShowDialog() == true)
+            {
+                Movies.Add(addWindow.movie);
+                m.Movies.Add(addWindow.movie);
+                dataGrid.Items.Refresh();
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            m.Movies.Remove((Movie)dataGrid.SelectedItem);
-            dataGrid.Items.Refresh();
+            MessageBoxResult result;
+
+            result = MessageBox.Show("Are You sure You want to Delete selected Movie", "Delete", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                var selected = (Movie)dataGrid.SelectedItem;
+                Movies.Remove(selected);
+                m.Movies.Remove(selected);
+            }
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -56,6 +68,19 @@ namespace MovieCatalogV2._0
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             m.SaveChanges();
+            MessageBox.Show("Movies saved succsesfully");
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditWindow editWindow = new EditWindow((Movie)dataGrid.SelectedItem);
+
+            if (editWindow.ShowDialog() == true)
+            {
+                m.Movies.Add(editWindow.movie);
+                dataGrid.Items.Refresh();
+            }
         }
     }
 }
+

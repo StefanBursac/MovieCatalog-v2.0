@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,34 +15,28 @@ using System.Windows.Shapes;
 namespace MovieCatalogV20
 {
     /// <summary>
-    /// Interaction logic for AddDialogWindow.xaml
+    /// Interaction logic for EditWindow.xaml
     /// </summary>
-    public partial class AddDialogWindow : Window
+    public partial class EditWindow : Window
     {
-       public Movie movie { get; set; }
-        
-        public AddDialogWindow()
+        public Movie movie { get; set; }
+
+        public EditWindow(Movie m)
         {
             InitializeComponent();
-            textboxGenre.ItemsSource = Enum.GetValues(typeof(Movie.Genre));
-
+            movie = m;
+            textBoxName.Text = m.MovieName;
+            textBoxDirector.Text = m.MovieDirector;
+            textBoxDate.SelectedDate = m.ReleaseDate;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Ok_Click(object sender, RoutedEventArgs e)
         {
-            movie = new Movie();
             movie.MovieName = textBoxName.Text;
             movie.MovieDirector = textBoxDirector.Text;
-       
-            movie.ReleaseDate = textBoxDate.SelectedDate;
+            movie.ReleaseDate = textBoxDate.SelectedDate.Value;
             this.DialogResult = true;
             this.Close();
-        }
-
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

@@ -6,17 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieCatalogV2._0
+namespace MovieCatalogV20
 {
     public class MovieCatalogContext : DbContext
     {
 
-        public MovieCatalogContext() : base ("MovieCatalog")
+        public MovieCatalogContext() : base ()
         {
-            
-        }
+
+        }   
 
        // public IEnumerable Local { get; set; }
         public DbSet<Movie> Movies { get; set; }
+
+        
     }
 }

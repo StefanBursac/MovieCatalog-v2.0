@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MovieCatalogV20.Properties
+namespace sadas.Properties
 {
 
 
