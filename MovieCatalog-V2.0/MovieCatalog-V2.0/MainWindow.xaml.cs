@@ -23,23 +23,23 @@ namespace MovieCatalog_V2._0
         public MainWindow()
         {
             InitializeComponent();
-           using (var mctx = new MovieCatalogContext()) { }
-            //{
-            //    Movie mov = new Movie() { MovieName = "New Student" };
+            using (var mctx = new MovieCatalogContext())  
+            {
+              //Movie mov = new Movie() { MovieName = "New Movie" };
 
-            //    mctx.Movies.Add(mov);
-            //    mctx.SaveChanges();
-            //}
+              //   mctx.Movies.Add(mov);
+              //   mctx.SaveChanges();
+           }
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             // using (var mctx = new MovieCatalogContext())
             //
-                MovieCatalogContext mtcx = new MovieCatalogContext();
-                Movie mov = new Movie() { MovieName = "Martian", Director="Ridley Scot"};
-                mtcx.Movies.Add(mov);
-                mtcx.SaveChanges();
+               // MovieCatalogContext mtcx = new MovieCatalogContext();
+               // Movie mov = new Movie() { MovieName = "Martian", Director="Ridley Scot"};
+               // mtcx.Movies.Add(mov);
+              //  mtcx.SaveChanges();
                 
           //  }
         }
