@@ -21,7 +21,7 @@ namespace MovieCatalogV20
     {
         public Movie movie { get; set; }
        
-        public EditWindow(Movie m)
+        public EditWindow(Movie m)wqewq
         {
             InitializeComponent();
             movie = m;
