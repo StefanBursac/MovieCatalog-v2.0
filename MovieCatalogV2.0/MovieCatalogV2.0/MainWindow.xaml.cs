@@ -68,7 +68,7 @@ namespace MovieCatalogV20
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             m.SaveChanges();
-            MessageBox.Show("Movies saved succsesfully");
+            MessageBox.Show("Movies saved succsesfully","Information");
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -77,7 +77,6 @@ namespace MovieCatalogV20
 
             if (editWindow.ShowDialog() == true)
             {
-                m.Movies.Add(editWindow.movie);
                 dataGrid.Items.Refresh();
             }
         }

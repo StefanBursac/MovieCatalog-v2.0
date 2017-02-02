@@ -34,7 +34,7 @@ namespace MovieCatalogV20
             movie = new Movie();
             movie.MovieName = textBoxName.Text;
             movie.MovieDirector = textBoxDirector.Text;
-       
+            movie.MovieGenre = (Movie.Genre)(textboxGenre.SelectedItem);
             movie.ReleaseDate = textBoxDate.SelectedDate;
             this.DialogResult = true;
             this.Close();

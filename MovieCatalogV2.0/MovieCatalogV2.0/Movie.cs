@@ -14,6 +14,6 @@ namespace MovieCatalogV20
         public string MovieDirector { get; set; }
         public DateTime? ReleaseDate { get; set; }
 
-        public enum Genre { Action,Drama,Comedy,SciFi };
+        public enum Genre { Action,Drama,Comedy,SciFi,Fantasy};
     }
 }

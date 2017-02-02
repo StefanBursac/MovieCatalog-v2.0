@@ -20,11 +20,12 @@ namespace MovieCatalogV20
     public partial class EditWindow : Window
     {
         public Movie movie { get; set; }
-
+       
         public EditWindow(Movie m)
         {
             InitializeComponent();
             movie = m;
+            textboxGenre.ItemsSource = Enum.GetValues(typeof(Movie.Genre));
             textBoxName.Text = m.MovieName;
             textBoxDirector.Text = m.MovieDirector;
             textBoxDate.SelectedDate = m.ReleaseDate;
@@ -34,7 +35,9 @@ namespace MovieCatalogV20
         {
             movie.MovieName = textBoxName.Text;
             movie.MovieDirector = textBoxDirector.Text;
-            movie.ReleaseDate = textBoxDate.SelectedDate.Value;
+            movie.ReleaseDate = textBoxDate.SelectedDate;
+            movie.MovieGenre = (Movie.Genre)textboxGenre.SelectedItem;
+            movie.MovieGenre.ToString();
             this.DialogResult = true;
             this.Close();
         }
